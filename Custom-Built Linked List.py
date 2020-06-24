@@ -90,21 +90,60 @@ class LinkedList:
             next = current.next  # stores value of next node (node to the right of current) in a variable
             current.next = previous  # sets pointer of current node to previous node instead of next
             self.reverse_list_recursively(next, current)
+            
+    # This function converts non-empty linked lists to integer value
+    def convert_linkedlist_to_value(self):
+    arr=[]
+    arr_val=""
+    current = self.head
+    while current != None:
+      arr.append(int(current.data))
+      current = current.next
+    for i in arr:
+      arr_val= str(i) + arr_val
+    
+    return int(arr_val)
+
+    # This function adds two non-empty linked list represented as integer values.
+  def add_two_numbers(self, value1, value2):
+    #value1=self.convert_list_to_value()
+    value1=Node(value1)
+    #value2=self.convert_list_to_value()
+    value2=Node(value2)
+    result = []
+    total = str(value1.data + value2.data)
+    for i in total:
+      result.append(int(i))
+    for num in result:
+      self.left_append(num)
 
 
 my_list = LinkedList()
-my_list.append_value(1)
-my_list.append_value(2)
-my_list.append_value(3)
-my_list.append_value(4)
-my_list.append_value(5)
-print(my_list)
-my_list.left_append_value(6)
+#my_list.append_value(1)
+#my_list.append_value(2)
+#my_list.append_value(3)
+#my_list.append_value(4)
+#my_list.append_value(5)
+#print(my_list)
+#my_list.left_append_value(6)
 #print(my_list.length_list())
 #print(my_list.search_value(2))
 #print(my_list.remove_value(3))
 print(my_list)
 
-my_list.reverse_list_recursively(my_list.head, None)
+my_list1 = LinkedList()
+my_list1.append_value(2)
+my_list1.append_value(4)
+my_list1.append_value(3)
+value1=my_list1.convert_list_to_value()
+my_list2 = LinkedList()
+my_list2.append_value(5)
+my_list2.append_value(6)
+my_list2.append_value(4)
+value2=my_list2.convert_list_to_value()
+my_list.add_two_numbers(value1, value2)
 print(my_list)
+
+#my_list.reverse_list_recursively(my_list.head, None)
+#print(my_list)
 
